@@ -1,0 +1,109 @@
+{
+    "timestamp": "2026-05-21 12:41:32.599336",
+    "file_name": "eaede0f440f54a18a7348fd1d38cfc9b_canva-2-80-0.apk",
+    "sha256": "4cfc688c26935f33102d6cc48d48d432ec90f6f9ab85054485494c254a82a648",
+    "static_analysis": {
+        "status": "success",
+        "hash": "54f93ce2ae93b16f22f396972ee2387b",
+        "app_name": "Canva",
+        "package_name": "com.canva.editor",
+        "version_name": "2.80.0",
+        "min_sdk": "16",
+        "target_sdk": "28",
+        "security_score": "N/A",
+        "average_cvss": null,
+        "dangerous_permissions": [
+            "android.permission.READ_EXTERNAL_STORAGE",
+            "android.permission.WRITE_EXTERNAL_STORAGE",
+            "android.permission.CAMERA"
+        ],
+        "manifest_issues": [],
+        "code_issues": [
+            {
+                "rule": "android_logging",
+                "severity": "info",
+                "description": "The App logs information. Sensitive information should never be logged.",
+                "files_count": 367
+            },
+            {
+                "rule": "android_md5",
+                "severity": "warning",
+                "description": "MD5 is a weak hash known to have hash collisions.",
+                "files_count": 13
+            },
+            {
+                "rule": "android_insecure_random",
+                "severity": "warning",
+                "description": "The App uses an insecure Random Number Generator.",
+                "files_count": 15
+            },
+            {
+                "rule": "android_sql_raw_query",
+                "severity": "warning",
+                "description": "App uses SQLite Database and execute raw SQL query. Untrusted user input in raw SQL queries can cause SQL Injection. Also sensitive information should be encrypted and written to the database.",
+                "files_count": 21
+            },
+            {
+                "rule": "android_read_write_external",
+                "severity": "warning",
+                "description": "App can read/write to External Storage. Any App can read data written to External Storage.",
+                "files_count": 11
+            },
+            {
+                "rule": "android_webview",
+                "severity": "warning",
+                "description": "Insecure WebView Implementation. Execution of user controlled code in WebView is a critical Security Hole.",
+                "files_count": 3
+            },
+            {
+                "rule": "android_hardcoded",
+                "severity": "warning",
+                "description": "Files may contain hardcoded sensitive information like usernames, passwords, keys etc.",
+                "files_count": 22
+            },
+            {
+                "rule": "android_clipboard_copy",
+                "severity": "info",
+                "description": "This App copies data to clipboard. Sensitive data should not be copied to clipboard as other applications can access it.",
+                "files_count": 1
+            },
+            {
+                "rule": "android_ip_disclosure",
+                "severity": "warning",
+                "description": "IP Address disclosure",
+                "files_count": 7
+            },
+            {
+                "rule": "android_write_app_dir",
+                "severity": "info",
+                "description": "App can write to App Directory. Sensitive Information should be encrypted.",
+                "files_count": 12
+            }
+        ],
+        "trackers": 13
+    },
+    "dynamic_analysis": {
+        "status": "skipped",
+        "reason": "Dynamic analysis requires a connected Android device / emulator with Frida."
+    },
+    "api_testing": {
+        "status": "completed",
+        "severity": "High",
+        "findings": [
+            {
+                "issue": "Plaintext HTTP endpoints found in APK",
+                "detail": [
+                    "http://ns.adobe.com/pdf/1.3/",
+                    "http://www.w3.org/1999/02/22-rdf-syntax-ns",
+                    "http://ns.adobe.com/xap/1.0/"
+                ]
+            },
+            {
+                "issue": "Hardcoded IP addresses found in APK",
+                "detail": [
+                    "70.50.50.50"
+                ]
+            }
+        ]
+    }
+}

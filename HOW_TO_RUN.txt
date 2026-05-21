@@ -1,0 +1,159 @@
+================================================================
+       MOBILE SECURITY SCANNER - HOW TO RUN THE PROJECT
+================================================================
+
+PREREQUISITES (One-time setup - already done on this machine)
+----------------------------------------------------------------
+- Python 3.13          : C:\Users\Harit\AppData\Local\Programs\Python\Python313\
+- Java JDK 17          : C:\jdk17\jdk-17.0.11+9\
+- Poetry               : installed via pip
+- All Python packages  : flask, requests, werkzeug, reportlab, urllib3
+- MobSF dependencies   : installed via poetry
+- MobSF database       : migrations applied, roles created
+
+
+================================================================
+STEP 1 — START MOBSF (Backend Analysis Engine)
+================================================================
+
+Open a terminal (CMD or PowerShell) and run:
+
+  cd "d:\PROJECTS\MOBILE SECURITY SCANNER\mobile_security_scanner\mobile_security_scanner\Mobile-Security-Framework-MobSF"
+
+  python -m poetry run waitress-serve --listen=0.0.0.0:8000 --threads=10 --channel-timeout=3600 mobsf.MobSF.wsgi:application
+
+Wait until you see this in the output:
+  REST API Key: eb64e40e2cc60925c4c3d3237142ab93dd72b0c3c1fcd239fc340b2375a5253e
+  MobSF is now running on: http://127.0.0.1:8000
+
+NOTE: Keep this terminal open. Do NOT close it.
+
+
+================================================================
+STEP 2 — START THE FLASK APP (Your Scanner Website)
+================================================================
+
+Open a SECOND terminal and run:
+
+  cd "d:\PROJECTS\MOBILE SECURITY SCANNER\mobile_security_scanner\mobile_security_scanner"
+
+  C:\Users\Harit\AppData\Local\Programs\Python\Python313\python.exe app.py
+
+Wait until you see:
+  * Running on http://127.0.0.1:5000
+
+NOTE: Keep this terminal open too.
+
+
+================================================================
+STEP 3 — USE THE SCANNER
+================================================================
+
+1. Open your browser
+2. Go to:  http://127.0.0.1:5000
+3. Click "Choose APK file" and select any .apk file
+4. Click "Start Security Scan"
+5. Wait 30-60 seconds for the scan to complete
+6. View results: security score, permissions, manifest issues, code findings
+7. Download PDF or JSON report using the buttons at the bottom
+
+
+================================================================
+IMPORTANT CONFIGURATION
+================================================================
+
+MobSF API Key (already set in app.py):
+  eb64e40e2cc60925c4c3d3237142ab93dd72b0c3c1fcd239fc340b2375a5253e
+
+MobSF Login (if you open http://127.0.0.1:8000 directly):
+  Username : mobsf
+  Password : mobsf
+
+Java path used by MobSF:
+  C:/jdk17/jdk-17.0.11+9/bin/
+  (configured in C:\Users\Harit\.MobSF\config.py)
+
+
+================================================================
+QUICK REFERENCE — BOTH COMMANDS AT A GLANCE
+================================================================
+
+Terminal 1 (MobSF):
+  cd "d:\PROJECTS\MOBILE SECURITY SCANNER\mobile_security_scanner\mobile_security_scanner\Mobile-Security-Framework-MobSF"
+  python -m poetry run waitress-serve --listen=0.0.0.0:8000 --threads=10 --channel-timeout=3600 mobsf.MobSF.wsgi:application
+
+Terminal 2 (Flask App):
+  cd "d:\PROJECTS\MOBILE SECURITY SCANNER\mobile_security_scanner\mobile_security_scanner"
+  C:\Users\Harit\AppData\Local\Programs\Python\Python313\python.exe app.py
+
+Browser:
+  http://127.0.0.1:5000
+
+
+================================================================
+TROUBLESHOOTING
+================================================================
+
+Problem : "Cannot connect to MobSF" shown in scan results
+Fix     : MobSF is not running. Start it using Terminal 1 command above.
+
+Problem : Browser shows "This site can't be reached" on port 5000
+Fix     : Flask is not running. Start it using Terminal 2 command above.
+
+Problem : Static Analysis shows 500 error
+Fix     : MobSF database needs migration. Run:
+          cd "...Mobile-Security-Framework-MobSF"
+          python -m poetry run python manage.py makemigrations StaticAnalyzer --no-input
+          python -m poetry run python manage.py migrate --no-input
+          python -m poetry run python manage.py create_roles
+
+Problem : "poetry not found"
+Fix     : Run:  python -m pip install poetry==1.8.4
+
+Problem : npm ENOENT / package.json not found
+Fix     : This project does not use npm in the MobSF folder.
+      Use the Python/Poetry commands in STEP 1 and STEP 2 instead.
+
+Problem : Java error in MobSF logs
+Fix     : Java is at C:\jdk17\jdk-17.0.11+9\bin\
+          Make sure C:\Users\Harit\.MobSF\config.py has:
+          JAVA_DIRECTORY = 'C:/jdk17/jdk-17.0.11+9/bin/'
+
+Problem : Port already in use
+Fix     : Kill the process using the port:
+          netstat -ano | findstr :5000
+          taskkill /PID <pid> /F
+
+
+================================================================
+PROJECT STRUCTURE
+================================================================
+
+mobile_security_scanner/
+  app.py                          <- Main Flask application
+  requirements.txt                <- Python dependencies
+  templates/
+    index.html                    <- Upload page
+    result.html                   <- Scan results page
+  uploads/                        <- Uploaded APK files (auto-created)
+  reports/                        <- Generated JSON + PDF reports (auto-created)
+  Mobile-Security-Framework-MobSF/  <- MobSF engine (static analysis backend)
+
+
+================================================================
+HOW IT WORKS
+================================================================
+
+1. You upload an APK via the Flask web interface (port 5000)
+2. Flask sends the APK to MobSF via its REST API (port 8000)
+3. MobSF performs static analysis:
+   - Decompiles the APK using JADX
+   - Checks permissions, manifest, code patterns
+   - Calculates a security score (0-100)
+4. Flask also scans the APK binary for:
+   - Hardcoded HTTP endpoints (plaintext traffic risk)
+   - Hardcoded IP addresses
+5. Results are shown on screen and saved as JSON + PDF reports
+
+
+================================================================

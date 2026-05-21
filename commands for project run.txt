@@ -1,0 +1,6 @@
+cd "d:\PROJECTS\MOBILE SECURITY SCANNER\mobile_security_scanner\mobile_security_scanner\Mobile-Security-Framework-MobSF"
+python -m poetry run waitress-serve --listen=0.0.0.0:8000 --threads=10 --channel-timeout=3600 mobsf.MobSF.wsgi:application
+
+
+cd "d:\PROJECTS\MOBILE SECURITY SCANNER\mobile_security_scanner\mobile_security_scanner"
+C:\Users\Harit\AppData\Local\Programs\Python\Python313\python.exe app.py

@@ -1,0 +1,17 @@
+{
+    "timestamp": "2026-05-14 00:35:06.852114",
+    "file_name": "instander-18.0-6946-beta.apk",
+    "sha256": "7a5cb141de0d312bbd25e359c0b3f4c2f069833ea3e4c8f45f7c369ee224e8e2",
+    "static_analysis": {
+        "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    "dynamic_analysis": {
+        "status": "failed",
+        "reason": "Command '['frida', '-U', '-n', 'instander-18.0-6946-beta']' timed out after 20 seconds"
+    },
+    "api_testing": {
+        "status": "warning",
+        "issue": "Potential API data exposure detected",
+        "severity": "Medium"
+    }
+}

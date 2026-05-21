@@ -1,0 +1,18 @@
+{
+    "timestamp": "2026-05-14 15:29:53.399998",
+    "file_name": "Calculator_X.apk",
+    "sha256": "f19599cca8fb02f951640a4fb9cc5910ffbe05ac2848e7f3e9b9bbe6e70f63f5",
+    "static_analysis": {
+        "status": "failed",
+        "error": "HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /api/v1/upload (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8000): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it\"))"
+    },
+    "dynamic_analysis": {
+        "status": "Dynamic analysis disabled",
+        "reason": "No Android device connected"
+    },
+    "api_testing": {
+        "status": "warning",
+        "issue": "Potential API data exposure detected",
+        "severity": "Medium"
+    }
+}
