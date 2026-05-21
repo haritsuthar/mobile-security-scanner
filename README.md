@@ -149,20 +149,23 @@ Generated reports include:
 ## 📸 Screenshots
 
 ### Dashboard UI
-(Add Screenshot Here)
+<img width="1920" height="1020" alt="DASHBOARD" src="https://github.com/user-attachments/assets/89ca3c06-b5d5-479d-9fa8-50ae1c4eb604" />
+
 
 ### Security Scan Results
-(Add Screenshot Here)
+<img width="1920" height="1080" alt="Screenshot 2026-05-21 130654" src="https://github.com/user-attachments/assets/db7bea42-59ac-4e57-b9ef-a7e0e1c5f227" />
+
 
 ### PDF Report
-(Add Screenshot Here)
+<img width="1920" height="1020" alt="Screenshot 2026-05-21 131013" src="https://github.com/user-attachments/assets/2f2eb398-34f6-4195-a0a9-c1bd4d212180" />
+
 
 ---
 
 ## 👨‍💻 Contributors
 
 - Harit Suthar
-- Team Collaborator
+- Jash Vadalia
 
 ---
 
