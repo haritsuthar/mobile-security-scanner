@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Mobile Security Scanner
 
@@ -24,3 +25,6 @@ python app.py
 
 ### Open Browser
 http://127.0.0.1:5000
+=======
+# mobile-security-scanner
+>>>>>>> 80c6e9d1520da45e06e2e8fc5cbbb727fabfabd4
