@@ -1,30 +1,190 @@
-<<<<<<< HEAD
+# 🔐 Mobile Security Scanner
 
-# Mobile Security Scanner
+A modern cybersecurity-focused web application for analyzing Android APK files, detecting vulnerabilities, generating security reports, and visualizing mobile application risks using Python & Flask.
 
-## Features
-- APK upload validation
-- Static analysis with MobSF
-- Dynamic analysis with Frida
-- API testing support
-- JSON report generation
-- SHA256 hashing
-- Improved UI
+---
 
-## Run Project
+## 🚀 Project Overview
 
-### Install Dependencies
+The Mobile Security Scanner is designed to perform basic mobile application security assessment on Android APK files. The system provides a modern dashboard for APK uploads, SHA256 hashing, vulnerability visualization, API security testing, and automated PDF report generation.
+
+This project was built as a practical cybersecurity and secure development initiative to gain hands-on experience in:
+- Mobile Application Security
+- Flask Web Development
+- Secure File Handling
+- Vulnerability Analysis
+- Automated Reporting
+
+---
+
+## ✨ Features
+
+✅ APK File Upload & Analysis  
+✅ SHA256 Integrity Verification  
+✅ Static Security Analysis  
+✅ Dynamic Analysis Workflow  
+✅ API Security Testing  
+✅ Vulnerability Severity Indicators  
+✅ PDF Report Generation  
+✅ Modern Dark-Themed UI/UX  
+✅ Flask-Based Backend  
+✅ JSON Report Export  
+
+---
+
+## 🛠 Tech Stack
+
+### Backend
+- Python
+- Flask
+
+### Frontend
+- HTML5
+- CSS3
+
+### Security & Reporting
+- SHA256 Hashing
+- ReportLab (PDF Generation)
+- API Testing
+- Mobile Security Analysis
+
+---
+
+## 📂 Project Structure
+
+```bash
+mobile-security-scanner/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
+├── templates/
+│   ├── index.html
+│   └── result.html
+│
+├── uploads/
+├── reports/
+└── static/
+```
+
+---
+
+## ⚙ Installation
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/haritsuthar/mobile-security-scanner.git
+```
+
+### 2️⃣ Navigate To Project
+
+```bash
+cd mobile-security-scanner
+```
+
+### 3️⃣ Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### 4️⃣ Activate Virtual Environment
+
+#### Windows
+
+```bash
+.\venv\Scripts\activate
+```
+
+### 5️⃣ Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-### Start MobSF
-Run MobSF locally on:
-http://127.0.0.1:8000
+### 6️⃣ Run Flask Application
 
-### Run Flask App
+```bash
 python app.py
+```
 
-### Open Browser
+---
+
+## 🌐 Access Application
+
+Open browser:
+
+```bash
 http://127.0.0.1:5000
-=======
-# mobile-security-scanner
->>>>>>> 80c6e9d1520da45e06e2e8fc5cbbb727fabfabd4
+```
+
+---
+
+## 📄 PDF Reporting
+
+The application automatically generates downloadable PDF security reports after APK analysis.
+
+Generated reports include:
+- File Information
+- SHA256 Hash
+- Static Analysis Results
+- Dynamic Analysis Results
+- API Security Findings
+
+---
+
+## 🔒 Security Functionalities
+
+- APK Security Assessment
+- Hash Verification
+- Vulnerability Visualization
+- API Exposure Detection
+- Security Report Automation
+
+---
+
+## 📸 Screenshots
+
+### Dashboard UI
+(Add Screenshot Here)
+
+### Security Scan Results
+(Add Screenshot Here)
+
+### PDF Report
+(Add Screenshot Here)
+
+---
+
+## 👨‍💻 Contributors
+
+- Harit Suthar
+- Team Collaborator
+
+---
+
+## 🎯 Future Improvements
+
+- Full MobSF Integration
+- Malware Detection Engine
+- AI-Based Threat Classification
+- Real-Time APK Monitoring
+- Advanced Dynamic Analysis
+
+---
+
+## 📌 Educational Purpose
+
+This project was developed for:
+- Educational Learning
+- Cybersecurity Practice
+- Mobile Application Security Research
+
+---
+
+## 📜 License
+
+This project is intended for educational and research purposes only.
